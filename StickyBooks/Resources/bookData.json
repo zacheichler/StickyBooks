@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1001,
+        "name": "Sapiens: A Brief History of Humankind",
+        "author": "Yuval Noah Harari",
+        "pages": 512,
+        "the_status": "active",
+        "current_page": 250,
+        "imageName": "sapiens"
+    },
+    {
+        "id": 1002,
+        "name": "Sapiens: A Brief History of Humankind",
+        "author": "Yuval Noah Harari",
+        "pages": 512,
+        "the_status": "active",
+        "current_page": 250,
+        "imageName": "sapiens"
+    },
+    {
+        "id": 1003,
+        "name": "Sapiens: A Brief History of Humankind",
+        "author": "Yuval Noah Harari",
+        "pages": 512,
+        "the_status": "active",
+        "current_page": 250,
+        "imageName": "sapiens"
+    },
+    {
+        "id": 1004,
+        "name": "Think and Grow Rich",
+        "author": "Napolean Hill",
+        "pages": 256,
+        "the_status": "finished",
+        "current_page": 0,
+        "imageName": "think_and_grow_rich"
+    },
+    {
+        "id": 1005,
+        "name": "Everybody Lies",
+        "author": "Seth Stephens-Davidowitz",
+        "pages": 352,
+        "the_status": "paused",
+        "current_page": 233,
+        "imageName": "everybody_lies"
+    },
+    {
+        "id": 1006,
+        "name": "Life 3.0: Being Human in the Age of Artificial Intelligence",
+        "author": "Max Tegmark",
+        "pages": 384,
+        "the_status": "not_started",
+        "current_page": 0,
+        "imageName": "life_3"
+    },
+    {
+        "id": 1007,
+        "name": "Life 3.0: Being Human in the Age of Artificial Intelligence",
+        "author": "Max Tegmark",
+        "pages": 384,
+        "the_status": "active",
+        "current_page": 0,
+        "imageName": "life_3"
+    }
+]
+
