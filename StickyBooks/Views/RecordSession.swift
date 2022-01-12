@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct RecordSession: View {
+    var book:Book
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss
+    
+    
     @State var pageNumber = ""
     
     var body: some View {
@@ -15,7 +20,8 @@ struct RecordSession: View {
             ZStack{
                 Color("BGBeige").edgesIgnoringSafeArea(.all)
                 VStack{
-                    Text("What page are you on?").padding(.top, 100).padding(.bottom, 20)
+                    Text("What page are you on?").font(.title).padding(.top, 100).padding(.bottom, 20)
+                    Text("Last Session: \(Int(book.current_page))" )
                     
                     TextField("-", text: $pageNumber)
                         .keyboardType(.decimalPad)
@@ -26,6 +32,12 @@ struct RecordSession: View {
                         .multilineTextAlignment(.center)
                     Spacer()
                     Button(action: {
+                        
+                        if(pageNumber != ""){
+                            book.current_page = Double(pageNumber) ?? 0.0
+                            try? moc.save()
+                            dismiss()
+                        }
                         
                     }){
                         Text("Save")
@@ -47,8 +59,8 @@ struct RecordSession: View {
     }
 }
 
-struct RecordSession_Previews: PreviewProvider {
-    static var previews: some View {
-        RecordSession()
-    }
-}
+//struct RecordSession_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RecordSession()
+//    }
+//}

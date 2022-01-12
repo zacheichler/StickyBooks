@@ -9,62 +9,103 @@ import SwiftUI
 
 struct Summary: View {
     
-    var book:Book
+    @State var book:Book
+    
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss
+    @State private var showingDeleteAlert = false
+    @FetchRequest(sortDescriptors: []) var notes: FetchedResults<Note>
+    
+    
+ 
     
     
     
     var body: some View {
         
         
-        
         VStack {
             ZStack{
                 Rectangle().fill(Color("DarkBeige")).frame(height:300, alignment: .center)
                 
-                book.image.resizable().frame(width: 136, height: 200).cornerRadius(5)
+                Image(book.imageName ?? "Unknown")
+                    .resizable()
+                    .frame(width: 136, height: 200)
+                    .cornerRadius(5)
                 
             }
             
             VStack(alignment: .leading){
                 
                 
+                VStack(alignment: .leading){
+                    if(book.the_status == "Active"){
+                        Text(book.the_status ?? "Unknown Status").frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
+                    }else if(book.the_status == "Finished"){
+                        Text(book.the_status ?? "Unknown Status").frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
+                        
+                    }else if(book.the_status == "Paused"){
+                        Text(book.the_status ?? "Unknown Status").frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
+                        
+                    }else if(book.the_status == "Not Started"){
+                        Text(book.the_status ?? "Unknown Status").frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
+                    }
+                    
+                    
+                    Text(book.title ?? "Unknown Title").font(.title).padding(.bottom, 5)
+                    HStack{
+                        Text("\(book.author ?? "Unknown Author")")
+                            .font(.subheadline)
+                        Text("•")
+                            .font(.subheadline)
+                        Text("\(Int(book.pages)) pages")
+                            .font(.subheadline)
+                    }.padding(.bottom, 8)
+                    
+                    HStack{
+                        Text("\(book.genre ?? "Unknown Genre")").padding(EdgeInsets(top:5, leading:10,bottom:5,trailing:10)).background(Color("DarkBeige")).cornerRadius(5)
+                    }.padding(.bottom, 30)
+                    
+                    Text("Bookmarks").font(.headline)
+                }.padding(.leading, 20)
                 
-                if(book.the_status == "active"){
-                    Text("ACTIVELY READING").frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange"))
-                }else if(book.the_status == "finished"){
-                    Text("FINISHED BOOK").frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange"))
-                    
-                }else if(book.the_status == "paused"){
-                    Text("ON PAUSE").frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange"))
-                    
-                }else if(book.the_status == "not_started"){
-                    Text("NOT STARTED").frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange"))
+                VStack(spacing: 0){
+//                    NoteView()
+//                    NoteView()
                 }
                 
-                
-                Text(book.name).font(.title)
-                Text("\(book.author) • \(Int(book.pages))").font(.subheadline)
-                
-                HStack{
-                    Text("History of Civilization").padding(EdgeInsets(top:5, leading:10,bottom:5,trailing:10)).background(Color("DarkBeige")).cornerRadius(5)
-                    Text("Evolution").padding(EdgeInsets(top:5, leading:10,bottom:5,trailing:10)).background(Color("DarkBeige")).cornerRadius(5)
-                    
-                }
-                
-            }.padding(.leading, 20).padding(.top, 30)
+            }.padding(.top, 30)
             
             
             
+            
+            
+        }.alert("Delete book?", isPresented: $showingDeleteAlert){
+            Button("Delete", role: .destructive, action: deleteBook)
+            Button("Cancel", role: .cancel){}
+        } message: {
+            Text("You will lose all notes associated with this book")
+        }.toolbar{
+            Button{
+                showingDeleteAlert = true
+            } label: {
+                Label("Delete this book", systemImage: "trash").foregroundColor(Color("Orange"))
+            }
         }
+            
         
         
         
-        
+    }
+    func deleteBook(){
+        moc.delete(book)
+        try? moc.save()
+        dismiss()
     }
 }
 
-struct Summary_Previews: PreviewProvider {
-    static var previews: some View {
-        Summary(book:books[0])
-    }
-}
+//struct Summary_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Summary(book:books[0])
+//    }
+//}

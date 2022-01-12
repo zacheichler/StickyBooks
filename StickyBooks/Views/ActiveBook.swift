@@ -18,14 +18,20 @@ struct ActiveBook: View {
                 .fill(Color("DarkBeige"))
                 .frame(height: 190)
                 .cornerRadius(10)
-            book.image.resizable().frame(width: 98, height: 145).cornerRadius(5)
+            Image(book.imageName ?? "Unknown")
+                .resizable()
+                .frame(width: 98, height: 145)
+                .cornerRadius(5)
+
             VStack{
                 Spacer()
                 HStack{
                     Spacer()
                     ZStack{
                         Rectangle().fill(Color("Orange")).frame(width: 50, height: 30, alignment: .center).cornerRadius(100)
-                        Text(String("\(Int((book.current_page/book.pages)*100))%")).foregroundColor(Color.white)
+                        if(book.pages != 0){
+                            Text(String("\(Int((book.current_page/book.pages)*100))%")).foregroundColor(Color.white)
+                        }
                     }
                 }.padding(.bottom, 16).padding(.trailing, 16)
             }
@@ -33,8 +39,8 @@ struct ActiveBook: View {
     }
 }
 
-struct ActiveBook_Previews: PreviewProvider {
-    static var previews: some View {
-        ActiveBook(book: books[0])
-    }
-}
+//struct ActiveBook_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ActiveBook(book: books[0])
+//    }
+//}

@@ -1,10 +1,3 @@
-//
-//  DataController.swift
-//  StickyBooks
-//
-//  Created by Zach Eichler on 2022-01-05.
-//
-
 import CoreData
 import Foundation
 

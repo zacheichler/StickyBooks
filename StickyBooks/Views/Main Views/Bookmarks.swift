@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Bookmarks: View {
+    
+    @FetchRequest(sortDescriptors: []) var notes: FetchedResults<Note>
+    
     var body: some View {
         NavigationView{
             
@@ -15,29 +18,41 @@ struct Bookmarks: View {
                 Color("BGBeige").edgesIgnoringSafeArea(.all)
                 
                 ScrollView(){
-                    Note()
-                    Note()
-                    Note()
-                    Note()
-                    Note()
-                    Note()
-                    Note()
-                    Note()
+                    
+                    
+                    VStack(spacing:0){
+                        
+                       
+                        
+                        ForEach(notes){ note in
+                            
+                            if(note.isBookmarked){
+                                NoteView(note: note, isBoomarked: note.isBookmarked)
+                            }
+                            
+                            
+                            
+                        }
+                    }
+                    
+                    
                 }
-               
-                
-                .navigationTitle("Bookmarks")
                 
             }
             
             
+            .navigationTitle("Bookmarks")
             
         }
+        
+        
+        
     }
 }
 
-struct Bookmarks_Previews: PreviewProvider {
-    static var previews: some View {
-        Bookmarks()
-    }
-}
+
+//struct Bookmarks_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Bookmarks()
+//    }
+//}

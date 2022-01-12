@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct Dashboard: View {
-    
+    @Binding var showingTabBar:Bool
     @State private var isPresented = false
-    @State var theBook:Book
+    //@State var theBook:Book
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var books: FetchedResults<Book>
     
     let layout = [
             GridItem(.adaptive(minimum: 150))
@@ -26,38 +28,37 @@ struct Dashboard: View {
                     
                     Text("Actively Reading").padding(.leading, 7)
                 
-                    LazyVGrid(columns: layout){
-                        
-                        ForEach(books) {book in
-                            if(book.the_status == "active"){
-                                ActiveBook(book: book).padding(7).onTapGesture {
-                                    theBook = book
-                                    isPresented.toggle()
+                    ScrollView{
+                        LazyVGrid(columns: layout){
+                            
+                
+                            
+                            ForEach(books) { book in
+                                
+                                if(book.the_status == "Active"){
+                                    
+                                    NavigationLink {
+                                        ActivityPage(book: book)
+                                    } label: {
+                                        ActiveBook(book:book).padding(7)
+                                    }.simultaneousGesture(TapGesture().onEnded{
+                                        showingTabBar = false
+                                    })
                                     
                                 }
-                            }
-                        }.fullScreenCover(isPresented: $isPresented){
-                            NavigationView{
-                                VStack{
-                                    ActivityPage(isPresented: $isPresented,book: theBook)
-                                }
+                            
                                 
                             }
+                            
+                            
                         }
-                        
-                    }
+                }
                     
-                    Spacer()
                     
-                }.padding(.trailing, 8).padding(.leading, 8)
-                
-
-                
-                
-                
-                
-               
-                
+                    
+                    
+                }.padding(.trailing, 8).padding(.leading, 8).onAppear(perform: {showingTabBar = true})
+        
                 .navigationTitle("Dashboard")
                 .toolbar {
                     
@@ -73,6 +74,7 @@ struct Dashboard: View {
                             }
                         }
                                         }
+                   
                 }
                 
             }
@@ -82,8 +84,8 @@ struct Dashboard: View {
     }
 }
 
-struct Dashboard_Previews: PreviewProvider {
-    static var previews: some View {
-        Dashboard(theBook: books[0])
-    }
-}
+//struct Dashboard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Dashboard(theBook: books[0])
+//    }
+//}
