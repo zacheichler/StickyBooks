@@ -10,12 +10,12 @@ import SwiftUI
 struct BookView: View {
     
     @State var isSummary = true
-    
+    @Environment(\.dismiss) var dismiss
     var book:Book
     @Binding var showingTabBar:Bool
     @FetchRequest(sortDescriptors: []) var notes: FetchedResults<Note>
     @Environment(\.managedObjectContext) var moc
-    
+    @State var theTitle = ""
     
     var body: some View {
         
@@ -30,7 +30,12 @@ struct BookView: View {
                     Rectangle().frame(width: .infinity, height: 6).foregroundColor(isSummary ? Color("Orange") : Color("BGBeige"))
                 }.onTapGesture {
                     isSummary = true
-                }.onAppear(perform: {showingTabBar = false})
+                }.onAppear(perform: {
+                    
+                    showingTabBar = false
+                    theTitle = "\((book.title ?? "Unknown Title").prefix(15))..."
+                    
+                })
                 VStack{
                     Text("All Notes")
                     Rectangle().frame(width: .infinity, height: 6).foregroundColor(isSummary ? Color("BGBeige") : Color("Orange"))
@@ -82,8 +87,7 @@ struct BookView: View {
                         Text("Pause Book")
                             .frame(maxWidth: .infinity, maxHeight: 50)
                             .foregroundColor(Color("Orange"))
-                            .cornerRadius(9)
-                            .border(Color("Orange"), width: 2)
+                            .border(Color("Orange"), width: 2, cornerRadius: 9)
                             .padding(EdgeInsets(top: 15, leading: 20, bottom: 20, trailing: 6))
                             
                     }
@@ -152,9 +156,18 @@ struct BookView: View {
             }
             
             
-                .navigationTitle(book.title ?? "Unknown Title")
+            .navigationTitle(theTitle)
                 .navigationBarTitleDisplayMode(.inline)
                 .accentColor(Color("Orange"))
+                .navigationBarBackButtonHidden(true)
+                
+                .toolbar{
+                        ToolbarItem(placement: .navigationBarLeading){
+                            Text("Back").foregroundColor(Color("Orange")).onTapGesture {
+                                dismiss()
+                            }
+                        }
+                    }
         }
     }
     }

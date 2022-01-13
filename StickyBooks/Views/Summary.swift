@@ -28,10 +28,23 @@ struct Summary: View {
             ZStack{
                 Rectangle().fill(Color("DarkBeige")).frame(height:300, alignment: .center)
                 
-                Image(book.imageName ?? "Unknown")
-                    .resizable()
-                    .frame(width: 136, height: 200)
-                    .cornerRadius(5)
+                
+                if let imgData = book.thumbnail {
+                    Image(uiImage: UIImage(data: imgData)!)
+                        .resizable()
+                        .frame(width: 136, height: 200)
+                        .cornerRadius(5)
+                } else {
+                    ZStack(alignment: .top) {
+                        Rectangle()
+                            .foregroundColor(.accentColor)
+                            .opacity(0.8)
+                        Text(book.title ?? "Unknown title")
+                            .foregroundColor(.white)
+                            .font(.headline)
+                            .padding()
+                    }
+                }
                 
             }
             
@@ -40,15 +53,15 @@ struct Summary: View {
                 
                 VStack(alignment: .leading){
                     if(book.the_status == "Active"){
-                        Text(book.the_status ?? "Unknown Status").frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
+                        Text(book.the_status ?? "Unknown Status").textCase(.uppercase).frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
                     }else if(book.the_status == "Finished"){
-                        Text(book.the_status ?? "Unknown Status").frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
+                        Text(book.the_status ?? "Unknown Status").textCase(.uppercase).frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
                         
                     }else if(book.the_status == "Paused"){
-                        Text(book.the_status ?? "Unknown Status").frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
+                        Text(book.the_status ?? "Unknown Status").textCase(.uppercase).frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
                         
                     }else if(book.the_status == "Not Started"){
-                        Text(book.the_status ?? "Unknown Status").frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
+                        Text(book.the_status ?? "Unknown Status").textCase(.uppercase).frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
                     }
                     
                     
@@ -62,16 +75,24 @@ struct Summary: View {
                             .font(.subheadline)
                     }.padding(.bottom, 8)
                     
-                    HStack{
-                        Text("\(book.genre ?? "Unknown Genre")").padding(EdgeInsets(top:5, leading:10,bottom:5,trailing:10)).background(Color("DarkBeige")).cornerRadius(5)
-                    }.padding(.bottom, 30)
+                    if(book.genre != ""){
+                        HStack{
+                            Text("\(book.genre ?? "Unknown Genre")").padding(EdgeInsets(top:5, leading:10,bottom:5,trailing:10)).background(Color("DarkBeige")).cornerRadius(5)
+                        }.padding(.bottom, 30)
+                    }
+                    
                     
                     Text("Bookmarks").font(.headline)
                 }.padding(.leading, 20)
                 
                 VStack(spacing: 0){
-//                    NoteView()
-//                    NoteView()
+                    ForEach(notes){ note in
+                        
+                        if(note.bookTitle == book.title && note.isBookmarked == true){
+                            NoteView(note: note, isBoomarked: note.isBookmarked)
+                        }
+                        
+                    }
                 }
                 
             }.padding(.top, 30)
@@ -106,6 +127,6 @@ struct Summary: View {
 
 //struct Summary_Previews: PreviewProvider {
 //    static var previews: some View {
-//        Summary(book:books[0])
+//        Summary(book:Book())
 //    }
 //}

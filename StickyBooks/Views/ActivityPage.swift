@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ActivityPage: View {
+    @Environment(\.dismiss) var dismiss
     @State var recordSheet = false
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var notes: FetchedResults<Note>
+    @State var theTitle = ""
     
     //@Binding var isPresented:Bool
     var book:Book
@@ -35,7 +37,7 @@ struct ActivityPage: View {
                     }.padding(.trailing, 20).padding(.leading, 20)
                     
                 }.onAppear(perform: {
-                    title = "\(book.title ?? "Unknown Title")..."
+                    theTitle = "\((book.title ?? "Unknown Title").prefix(15))..."
                 })
                 
                 
@@ -97,8 +99,17 @@ struct ActivityPage: View {
                 }
                 
             }.onAppear(perform: {noteIsFocused = false})
-        }.navigationTitle(title)
-            .navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationTitle(theTitle)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar{
+                ToolbarItem(placement: .navigationBarLeading){
+                    Text("Back").foregroundColor(Color("Orange")).onTapGesture {
+                        dismiss()
+                    }
+                }
+            }
         
     }
     

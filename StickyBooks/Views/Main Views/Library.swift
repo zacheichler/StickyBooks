@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Library: View {
+    let data = BookData()
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [
         SortDescriptor(\.title)
@@ -29,20 +30,8 @@ struct Library: View {
                 
                 VStack {
                     
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(Color("DarkBeige"))
-                            HStack {
-                                Image(systemName: "magnifyingglass")
-                                TextField("Search ..", text: $searchText)
-                            }
-                                .foregroundColor(.gray)
-                                .padding(.leading, 13)
-                        }
-                            .frame(height: 40)
-                            .cornerRadius(13)
-                            .padding()
-                            .onAppear(perform: {showingTabBar = true})
+                
+                
                   
                     //ScrollView {
                         List{
@@ -78,6 +67,8 @@ struct Library: View {
                         }
                         .background(Color("BGBeige"))
                         .listStyle(.plain)
+                        .searchable(text: $searchText)
+                        .onAppear(perform: {showingTabBar = true})
                         
                     
                         
@@ -104,7 +95,7 @@ struct Library: View {
                 }
                 
             }.sheet(isPresented: $showingAddScreen){
-                AddBookView()
+                AddBook(viewModel: data)
             }
             
         }

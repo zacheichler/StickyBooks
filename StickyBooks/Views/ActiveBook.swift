@@ -18,10 +18,24 @@ struct ActiveBook: View {
                 .fill(Color("DarkBeige"))
                 .frame(height: 190)
                 .cornerRadius(10)
-            Image(book.imageName ?? "Unknown")
-                .resizable()
-                .frame(width: 98, height: 145)
-                .cornerRadius(5)
+            
+            if let imgData = book.thumbnail {
+                Image(uiImage: UIImage(data: imgData)!)
+                    .resizable()
+                    .frame(width: 98, height: 145)
+                    .cornerRadius(5)
+            } else {
+                ZStack(alignment: .top) {
+                    Rectangle()
+                        .foregroundColor(.accentColor)
+                        .opacity(0.8)
+                    Text(book.title ?? "Unknown title")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .padding()
+                }
+            }
+            
 
             VStack{
                 Spacer()

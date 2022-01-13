@@ -9,16 +9,22 @@
 /* Begin PBXBuildFile section */
 		B5249A29276D007F002E79DF /* bookData.json in Resources */ = {isa = PBXBuildFile; fileRef = B5249A28276D007F002E79DF /* bookData.json */; };
 		B5249A32276D0B96002E79DF /* LibraryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5249A31276D0B96002E79DF /* LibraryRow.swift */; };
+		B52AC3C0278F74F10080D177 /* AddBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52AC3BF278F74F10080D177 /* AddBook.swift */; };
 		B531297B277695E4002E22D6 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531297A277695E4002E22D6 /* Dashboard.swift */; };
 		B531297E27769980002E22D6 /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531297D27769980002E22D6 /* Bookmarks.swift */; };
 		B53129802776998D002E22D6 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531297F2776998D002E22D6 /* Profile.swift */; };
 		B531298227769B74002E22D6 /* ActiveBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B531298127769B74002E22D6 /* ActiveBook.swift */; };
 		B53129842777D6FA002E22D6 /* ActivityPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53129832777D6FA002E22D6 /* ActivityPage.swift */; };
 		B5312988277BBC5F002E22D6 /* RecordSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5312987277BBC5F002E22D6 /* RecordSession.swift */; };
+		B537A8D22790B3030070FA8C /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = B537A8D12790B3030070FA8C /* SwiftUIX */; };
+		B537A8D52790B3830070FA8C /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537A8D42790B3830070FA8C /* CellView.swift */; };
+		B537A8D72790B38B0070FA8C /* ThumbnailCoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537A8D62790B38B0070FA8C /* ThumbnailCoverView.swift */; };
+		B537A8D92790B3920070FA8C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537A8D82790B3920070FA8C /* Model.swift */; };
+		B537A8DB2790B39A0070FA8C /* BookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537A8DA2790B39A0070FA8C /* BookData.swift */; };
 		B5622425277253C600CD451E /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5622424277253C600CD451E /* Summary.swift */; };
 		B57549C527865DFA00FF7893 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57549C427865DFA00FF7893 /* DataController.swift */; };
 		B59BFF882787AFBA00A51196 /* StickyBooks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B59BFF862787AFBA00A51196 /* StickyBooks.xcdatamodeld */; };
-		B59BFF8A2787B24700A51196 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59BFF892787B24700A51196 /* AddBookView.swift */; };
+		B59BFF8A2787B24700A51196 /* SaveBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59BFF892787B24700A51196 /* SaveBook.swift */; };
 		B5D723172759C57F00D96CAF /* StickyBooksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D723162759C57F00D96CAF /* StickyBooksApp.swift */; };
 		B5D723192759C57F00D96CAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D723182759C57F00D96CAF /* ContentView.swift */; };
 		B5D7231B2759C58000D96CAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D7231A2759C58000D96CAF /* Assets.xcassets */; };
@@ -51,16 +57,24 @@
 /* Begin PBXFileReference section */
 		B5249A28276D007F002E79DF /* bookData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bookData.json; sourceTree = "<group>"; };
 		B5249A31276D0B96002E79DF /* LibraryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRow.swift; sourceTree = "<group>"; };
+		B52AC3BF278F74F10080D177 /* AddBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBook.swift; sourceTree = "<group>"; };
+		B52AC3C1278F77FD0080D177 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B531297A277695E4002E22D6 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		B531297D27769980002E22D6 /* Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		B531297F2776998D002E22D6 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		B531298127769B74002E22D6 /* ActiveBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveBook.swift; sourceTree = "<group>"; };
 		B53129832777D6FA002E22D6 /* ActivityPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPage.swift; sourceTree = "<group>"; };
 		B5312987277BBC5F002E22D6 /* RecordSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSession.swift; sourceTree = "<group>"; };
+		B537A8CE2790B23A0070FA8C /* SwiftUIX */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUIX; path = "../../../Library/Developer/Xcode/DerivedData/ReadMe-axcohzyhcrwqhfctdewiyoozvgcw/SourcePackages/checkouts/SwiftUIX"; sourceTree = "<group>"; };
+		B537A8CF2790B23F0070FA8C /* SwiftUIX */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftUIX; path = "../../../Library/Developer/Xcode/DerivedData/ReadMe-axcohzyhcrwqhfctdewiyoozvgcw/SourcePackages/checkouts/SwiftUIX"; sourceTree = "<group>"; };
+		B537A8D42790B3830070FA8C /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		B537A8D62790B38B0070FA8C /* ThumbnailCoverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCoverView.swift; sourceTree = "<group>"; };
+		B537A8D82790B3920070FA8C /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B537A8DA2790B39A0070FA8C /* BookData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookData.swift; sourceTree = "<group>"; };
 		B5622424277253C600CD451E /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
 		B57549C427865DFA00FF7893 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		B59BFF872787AFBA00A51196 /* StickyBooks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StickyBooks.xcdatamodel; sourceTree = "<group>"; };
-		B59BFF892787B24700A51196 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
+		B59BFF892787B24700A51196 /* SaveBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBook.swift; sourceTree = "<group>"; };
 		B5D723132759C57F00D96CAF /* StickyBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StickyBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D723162759C57F00D96CAF /* StickyBooksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyBooksApp.swift; sourceTree = "<group>"; };
 		B5D723182759C57F00D96CAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B537A8D22790B3030070FA8C /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,16 +127,15 @@
 		B5249A2E276D014F002E79DF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B59BFF892787B24700A51196 /* SaveBook.swift */,
+				B52AC3BF278F74F10080D177 /* AddBook.swift */,
+				B5312987277BBC5F002E22D6 /* RecordSession.swift */,
+				B53129832777D6FA002E22D6 /* ActivityPage.swift */,
+				B5622424277253C600CD451E /* Summary.swift */,
+				B5FA2E81276D2D4A00144E85 /* BookView.swift */,
 				B5D723182759C57F00D96CAF /* ContentView.swift */,
 				B531298127769B74002E22D6 /* ActiveBook.swift */,
-				B5249A31276D0B96002E79DF /* LibraryRow.swift */,
 				B531297C2776977D002E22D6 /* Main Views */,
-				B5FA2E81276D2D4A00144E85 /* BookView.swift */,
-				B53129832777D6FA002E22D6 /* ActivityPage.swift */,
-				B5D7E07F277D524C00923F54 /* NoteView.swift */,
-				B5622424277253C600CD451E /* Summary.swift */,
-				B5312987277BBC5F002E22D6 /* RecordSession.swift */,
-				B59BFF892787B24700A51196 /* AddBookView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +149,26 @@
 				B531297F2776998D002E22D6 /* Profile.swift */,
 			);
 			path = "Main Views";
+			sourceTree = "<group>";
+		};
+		B537A8D32790B3630070FA8C /* APIStuff */ = {
+			isa = PBXGroup;
+			children = (
+				B537A8D62790B38B0070FA8C /* ThumbnailCoverView.swift */,
+				B537A8D42790B3830070FA8C /* CellView.swift */,
+				B537A8D82790B3920070FA8C /* Model.swift */,
+				B537A8DA2790B39A0070FA8C /* BookData.swift */,
+			);
+			path = APIStuff;
+			sourceTree = "<group>";
+		};
+		B537A8DC2790B5F90070FA8C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B5249A31276D0B96002E79DF /* LibraryRow.swift */,
+				B5D7E07F277D524C00923F54 /* NoteView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		B5D7230A2759C57F00D96CAF = {
@@ -163,7 +197,10 @@
 		B5D723152759C57F00D96CAF /* StickyBooks */ = {
 			isa = PBXGroup;
 			children = (
+				B52AC3C1278F77FD0080D177 /* Info.plist */,
 				B5D723162759C57F00D96CAF /* StickyBooksApp.swift */,
+				B537A8DC2790B5F90070FA8C /* Components */,
+				B537A8D32790B3630070FA8C /* APIStuff */,
 				B5249A2E276D014F002E79DF /* Views */,
 				B5D7231C2759C58000D96CAF /* Preview Content */,
 				B5249A2D276D0135002E79DF /* Resources */,
@@ -190,6 +227,8 @@
 		B5D723302759C58000D96CAF /* StickyBooksUITests */ = {
 			isa = PBXGroup;
 			children = (
+				B537A8CE2790B23A0070FA8C /* SwiftUIX */,
+				B537A8CF2790B23F0070FA8C /* SwiftUIX */,
 				B5D723312759C58000D96CAF /* StickyBooksUITests.swift */,
 				B5D723332759C58000D96CAF /* StickyBooksUITestsLaunchTests.swift */,
 			);
@@ -212,6 +251,9 @@
 			dependencies = (
 			);
 			name = StickyBooks;
+			packageProductDependencies = (
+				B537A8D12790B3030070FA8C /* SwiftUIX */,
+			);
 			productName = StickyBooks;
 			productReference = B5D723132759C57F00D96CAF /* StickyBooks.app */;
 			productType = "com.apple.product-type.application";
@@ -284,6 +326,9 @@
 				Base,
 			);
 			mainGroup = B5D7230A2759C57F00D96CAF;
+			packageReferences = (
+				B537A8D02790B3030070FA8C /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+			);
 			productRefGroup = B5D723142759C57F00D96CAF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -330,15 +375,20 @@
 				B5D723192759C57F00D96CAF /* ContentView.swift in Sources */,
 				B5312988277BBC5F002E22D6 /* RecordSession.swift in Sources */,
 				B531297E27769980002E22D6 /* Bookmarks.swift in Sources */,
+				B537A8D72790B38B0070FA8C /* ThumbnailCoverView.swift in Sources */,
 				B531298227769B74002E22D6 /* ActiveBook.swift in Sources */,
 				B5D7E080277D524C00923F54 /* NoteView.swift in Sources */,
+				B52AC3C0278F74F10080D177 /* AddBook.swift in Sources */,
 				B59BFF882787AFBA00A51196 /* StickyBooks.xcdatamodeld in Sources */,
+				B537A8DB2790B39A0070FA8C /* BookData.swift in Sources */,
 				B57549C527865DFA00FF7893 /* DataController.swift in Sources */,
+				B537A8D52790B3830070FA8C /* CellView.swift in Sources */,
 				B53129842777D6FA002E22D6 /* ActivityPage.swift in Sources */,
 				B5D723172759C57F00D96CAF /* StickyBooksApp.swift in Sources */,
 				B5FA2E80276D21DC00144E85 /* Library.swift in Sources */,
 				B531297B277695E4002E22D6 /* Dashboard.swift in Sources */,
-				B59BFF8A2787B24700A51196 /* AddBookView.swift in Sources */,
+				B59BFF8A2787B24700A51196 /* SaveBook.swift in Sources */,
+				B537A8D92790B3920070FA8C /* Model.swift in Sources */,
 				B5249A32276D0B96002E79DF /* LibraryRow.swift in Sources */,
 				B53129802776998D002E22D6 /* Profile.swift in Sources */,
 				B5622425277253C600CD451E /* Summary.swift in Sources */,
@@ -506,6 +556,7 @@
 				DEVELOPMENT_TEAM = GGQBTGK6VY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StickyBooks/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -535,6 +586,7 @@
 				DEVELOPMENT_TEAM = GGQBTGK6VY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StickyBooks/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -689,6 +741,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B537A8D02790B3030070FA8C /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B537A8D12790B3030070FA8C /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B537A8D02790B3030070FA8C /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		B59BFF862787AFBA00A51196 /* StickyBooks.xcdatamodeld */ = {

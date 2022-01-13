@@ -24,10 +24,25 @@ struct LibraryRow: View {
                         
                         .cornerRadius(6)
                     
-                    Image(book.imageName ?? "Unknown")
-                        .resizable()
-                        .frame(width: 32, height: 50)
-                        .cornerRadius(1)
+                    
+                    if let imgData = book.thumbnail {
+                        Image(uiImage: UIImage(data: imgData)!)
+                            .resizable()
+                            .frame(width: 32, height: 50)
+                            .cornerRadius(1)
+                    } else {
+                        ZStack(alignment: .top) {
+                            Rectangle()
+                                .foregroundColor(.accentColor)
+                                .opacity(0.8)
+                            Text(book.title ?? "Unknown title")
+                                .foregroundColor(.white)
+                                .font(.headline)
+                                .padding()
+                        }
+                    }
+                    
+
                     
                     
                 }
@@ -39,7 +54,10 @@ struct LibraryRow: View {
                 Spacer()
                 ZStack{
                     if(book.the_status == "Active"){
-                        Text("\(Int((book.current_page/book.pages)*100))%").foregroundColor(.black)
+                        if(book.pages != 0){
+                            Text("\(Int((book.current_page/book.pages)*100))%").foregroundColor(.black)
+                        }
+                        
                     }else if(book.the_status == "Finished"){
                         Circle().fill(Color("Orange")).frame(width:25, height: 25)
                         
