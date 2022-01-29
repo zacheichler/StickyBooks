@@ -14,7 +14,20 @@ struct CellView: View {
     var body: some View {
         NavigationLink(destination: SaveBook(for: book, image: bookThumbnail)) {
             LazyHStack(alignment: .top) {
-                ThumbnailCover(bookThumbnail: bookThumbnail)
+                
+                ZStack(alignment: .center){
+                    
+                    Rectangle()
+                        .fill(Color("DarkBeige"))
+                        .frame(width: 70, height: 70)
+                        .cornerRadius(6)
+                    ThumbnailCover(bookThumbnail: bookThumbnail).frame(width: 32, height: 46)
+                    
+                }
+                
+                
+                
+                
                 
                 LazyVStack(alignment: .leading) {
                     Text(book.volumeInfo.title).font(.headline)
@@ -27,6 +40,7 @@ struct CellView: View {
                 }
                 .frame(width: 225)
             }
+            
             .onAppear { loadBookThumbnail() }
         }
     }

@@ -22,6 +22,9 @@
 		B537A8D92790B3920070FA8C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537A8D82790B3920070FA8C /* Model.swift */; };
 		B537A8DB2790B39A0070FA8C /* BookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B537A8DA2790B39A0070FA8C /* BookData.swift */; };
 		B5622425277253C600CD451E /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5622424277253C600CD451E /* Summary.swift */; };
+		B56D5B8D27938B8F003DB6A7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B56D5B8C27938B8F003DB6A7 /* Lottie */; };
+		B56D5B8F27938BC7003DB6A7 /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = B56D5B8E27938BC7003DB6A7 /* confetti.json */; };
+		B56D5B9127938BDE003DB6A7 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56D5B9027938BDE003DB6A7 /* LottieView.swift */; };
 		B57549C527865DFA00FF7893 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57549C427865DFA00FF7893 /* DataController.swift */; };
 		B59BFF882787AFBA00A51196 /* StickyBooks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B59BFF862787AFBA00A51196 /* StickyBooks.xcdatamodeld */; };
 		B59BFF8A2787B24700A51196 /* SaveBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59BFF892787B24700A51196 /* SaveBook.swift */; };
@@ -58,7 +61,6 @@
 		B5249A28276D007F002E79DF /* bookData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bookData.json; sourceTree = "<group>"; };
 		B5249A31276D0B96002E79DF /* LibraryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRow.swift; sourceTree = "<group>"; };
 		B52AC3BF278F74F10080D177 /* AddBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBook.swift; sourceTree = "<group>"; };
-		B52AC3C1278F77FD0080D177 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B531297A277695E4002E22D6 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		B531297D27769980002E22D6 /* Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		B531297F2776998D002E22D6 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
@@ -72,6 +74,8 @@
 		B537A8D82790B3920070FA8C /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		B537A8DA2790B39A0070FA8C /* BookData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookData.swift; sourceTree = "<group>"; };
 		B5622424277253C600CD451E /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
+		B56D5B8E27938BC7003DB6A7 /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
+		B56D5B9027938BDE003DB6A7 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		B57549C427865DFA00FF7893 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		B59BFF872787AFBA00A51196 /* StickyBooks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StickyBooks.xcdatamodel; sourceTree = "<group>"; };
 		B59BFF892787B24700A51196 /* SaveBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBook.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B537A8D22790B3030070FA8C /* SwiftUIX in Frameworks */,
+				B56D5B8D27938B8F003DB6A7 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +139,6 @@
 				B5622424277253C600CD451E /* Summary.swift */,
 				B5FA2E81276D2D4A00144E85 /* BookView.swift */,
 				B5D723182759C57F00D96CAF /* ContentView.swift */,
-				B531298127769B74002E22D6 /* ActiveBook.swift */,
 				B531297C2776977D002E22D6 /* Main Views */,
 			);
 			path = Views;
@@ -166,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				B5249A31276D0B96002E79DF /* LibraryRow.swift */,
+				B531298127769B74002E22D6 /* ActiveBook.swift */,
 				B5D7E07F277D524C00923F54 /* NoteView.swift */,
 			);
 			path = Components;
@@ -174,6 +179,7 @@
 		B5D7230A2759C57F00D96CAF = {
 			isa = PBXGroup;
 			children = (
+				B56D5B9027938BDE003DB6A7 /* LottieView.swift */,
 				B59BFF862787AFBA00A51196 /* StickyBooks.xcdatamodeld */,
 				B57549C427865DFA00FF7893 /* DataController.swift */,
 				B5D723152759C57F00D96CAF /* StickyBooks */,
@@ -197,7 +203,7 @@
 		B5D723152759C57F00D96CAF /* StickyBooks */ = {
 			isa = PBXGroup;
 			children = (
-				B52AC3C1278F77FD0080D177 /* Info.plist */,
+				B56D5B8E27938BC7003DB6A7 /* confetti.json */,
 				B5D723162759C57F00D96CAF /* StickyBooksApp.swift */,
 				B537A8DC2790B5F90070FA8C /* Components */,
 				B537A8D32790B3630070FA8C /* APIStuff */,
@@ -253,6 +259,7 @@
 			name = StickyBooks;
 			packageProductDependencies = (
 				B537A8D12790B3030070FA8C /* SwiftUIX */,
+				B56D5B8C27938B8F003DB6A7 /* Lottie */,
 			);
 			productName = StickyBooks;
 			productReference = B5D723132759C57F00D96CAF /* StickyBooks.app */;
@@ -328,6 +335,7 @@
 			mainGroup = B5D7230A2759C57F00D96CAF;
 			packageReferences = (
 				B537A8D02790B3030070FA8C /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				B56D5B8B27938B8F003DB6A7 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = B5D723142759C57F00D96CAF /* Products */;
 			projectDirPath = "";
@@ -346,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5249A29276D007F002E79DF /* bookData.json in Resources */,
+				B56D5B8F27938BC7003DB6A7 /* confetti.json in Resources */,
 				B5D7231E2759C58000D96CAF /* Preview Assets.xcassets in Resources */,
 				B5D7231B2759C58000D96CAF /* Assets.xcassets in Resources */,
 			);
@@ -381,6 +390,7 @@
 				B52AC3C0278F74F10080D177 /* AddBook.swift in Sources */,
 				B59BFF882787AFBA00A51196 /* StickyBooks.xcdatamodeld in Sources */,
 				B537A8DB2790B39A0070FA8C /* BookData.swift in Sources */,
+				B56D5B9127938BDE003DB6A7 /* LottieView.swift in Sources */,
 				B57549C527865DFA00FF7893 /* DataController.swift in Sources */,
 				B537A8D52790B3830070FA8C /* CellView.swift in Sources */,
 				B53129842777D6FA002E22D6 /* ActivityPage.swift in Sources */,
@@ -557,6 +567,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StickyBooks/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -587,6 +598,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StickyBooks/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -751,6 +763,14 @@
 				minimumVersion = 0.1.1;
 			};
 		};
+		B56D5B8B27938B8F003DB6A7 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -758,6 +778,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B537A8D02790B3030070FA8C /* XCRemoteSwiftPackageReference "SwiftUIX" */;
 			productName = SwiftUIX;
+		};
+		B56D5B8C27938B8F003DB6A7 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B56D5B8B27938B8F003DB6A7 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 

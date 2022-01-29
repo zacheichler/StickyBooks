@@ -16,17 +16,12 @@ struct Summary: View {
     @State private var showingDeleteAlert = false
     @FetchRequest(sortDescriptors: []) var notes: FetchedResults<Note>
     
-    
- 
-    
-    
-    
     var body: some View {
         
         
         VStack {
             ZStack{
-                Rectangle().fill(Color("DarkBeige")).frame(height:300, alignment: .center)
+                Rectangle().fill(Color("MedBeige")).frame(height:300, alignment: .center)
                 
                 
                 if let imgData = book.thumbnail {
@@ -52,40 +47,20 @@ struct Summary: View {
                 
                 
                 VStack(alignment: .leading){
-                    if(book.the_status == "Active"){
-                        Text(book.the_status ?? "Unknown Status").textCase(.uppercase).frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
-                    }else if(book.the_status == "Finished"){
-                        Text(book.the_status ?? "Unknown Status").textCase(.uppercase).frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
-                        
-                    }else if(book.the_status == "Paused"){
-                        Text(book.the_status ?? "Unknown Status").textCase(.uppercase).frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
-                        
-                    }else if(book.the_status == "Not Started"){
-                        Text(book.the_status ?? "Unknown Status").textCase(.uppercase).frame(maxWidth: .infinity, alignment: .leading).font(.headline).foregroundColor(Color("Orange")).padding(.bottom, 2)
-                    }
                     
+                    Text(book.the_status ?? "Unknown Status").textCase(.uppercase).foregroundColor(Color("Orange")).font(.system(size: 16, weight: .bold)).padding(.bottom, 5)
                     
-                    Text(book.title ?? "Unknown Title").font(.title).padding(.bottom, 5)
-                    HStack{
-                        Text("\(book.author ?? "Unknown Author")")
-                            .font(.subheadline)
-                        Text("•")
-                            .font(.subheadline)
-                        Text("\(Int(book.pages)) pages")
-                            .font(.subheadline)
-                    }.padding(.bottom, 8)
+                    Text(book.title ?? "Unknown Title").foregroundColor(.black).font(.system(size: 24, weight: .medium)).padding(.bottom, 5)
                     
-                    if(book.genre != ""){
-                        HStack{
-                            Text("\(book.genre ?? "Unknown Genre")").padding(EdgeInsets(top:5, leading:10,bottom:5,trailing:10)).background(Color("DarkBeige")).cornerRadius(5)
-                        }.padding(.bottom, 30)
-                    }
-                    
-                    
-                    Text("Bookmarks").font(.headline)
-                }.padding(.leading, 20)
+                    Text("\(book.author ?? "Unknown Author") • \(Int(book.pages)) pages").foregroundColor(.gray).font(.system(size: 16, weight: .medium))
                 
-                VStack(spacing: 0){
+                    
+                }.frame(maxWidth: .infinity, alignment: .leading).padding(.trailing, 20).padding(.leading, 20)
+                
+                VStack(alignment: .leading, spacing: 0){
+                    
+                    Text("Saved Notes").foregroundColor(.black).font(.system(size: 18, weight: .medium)).padding(20)
+                    
                     ForEach(notes){ note in
                         
                         if(note.bookTitle == book.title && note.isBookmarked == true){
@@ -97,23 +72,26 @@ struct Summary: View {
                 
             }.padding(.top, 30)
             
-            
-            
-            
-            
         }.alert("Delete book?", isPresented: $showingDeleteAlert){
             Button("Delete", role: .destructive, action: deleteBook)
             Button("Cancel", role: .cancel){}
         } message: {
             Text("You will lose all notes associated with this book")
         }.toolbar{
-            Button{
-                showingDeleteAlert = true
-            } label: {
-                Label("Delete this book", systemImage: "trash").foregroundColor(Color("Orange"))
-            }
-        }
             
+            Image("trash")
+                .resizable()
+                .frame(width: 40, height: 40)
+                .onTapGesture {
+                    showingDeleteAlert = true
+                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                    impactMed.impactOccurred()
+                    
+            }
+            
+            
+        }
+        
         
         
         

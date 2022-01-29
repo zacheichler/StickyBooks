@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct RecordSession: View {
+    @Binding var recordSheet:Bool
     var book:Book
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     
+   
     
     @State var pageNumber = ""
     
@@ -30,6 +32,8 @@ struct RecordSession: View {
                         .background(Color("DarkBeige"))
                         .cornerRadius(50)
                         .multilineTextAlignment(.center)
+                   
+                    
                     Spacer()
                     Button(action: {
                         
@@ -55,8 +59,27 @@ struct RecordSession: View {
             }
             .navigationTitle("Record Session")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading){
+                    Image("back")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .onTapGesture {
+                            let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                            impactMed.impactOccurred()
+                            dismiss()
+                    }
+                    
+                
+                }
+                
+            }
+          
         }
+        
+        
     }
+    
 }
 
 //struct RecordSession_Previews: PreviewProvider {

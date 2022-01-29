@@ -23,7 +23,7 @@ struct BookView: View {
         Color("BGBeige").edgesIgnoringSafeArea(.all)
             
         VStack(spacing:0){
-            Divider()
+            
             HStack(spacing:0){
                 VStack{
                     Text("Summary")
@@ -42,7 +42,7 @@ struct BookView: View {
                 }.onTapGesture {
                     isSummary = false
                 }
-            }.padding(.top, 15)
+            }.padding(.top, 20)
             Divider()
             
             ScrollView{
@@ -163,8 +163,13 @@ struct BookView: View {
                 
                 .toolbar{
                         ToolbarItem(placement: .navigationBarLeading){
-                            Text("Back").foregroundColor(Color("Orange")).onTapGesture {
-                                dismiss()
+                            Image("back")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .onTapGesture {
+                                    let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                                    impactMed.impactOccurred()
+                                    dismiss()
                             }
                         }
                     }

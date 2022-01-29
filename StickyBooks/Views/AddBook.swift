@@ -25,10 +25,18 @@ struct AddBook: View {
                     SearchBar("Search...", text: $searchingText, isEditing: $isEditing)
                         .showsCancelButton(isEditing)
                         .onCancel { searchingText = "" }
+                
                     
                     List {
                         ForEach(viewModel.books) { book in
-                            CellView(for: book)
+                            ZStack{
+                                //Color("BGBeige").edgesIgnoringSafeArea(.all)
+                                CellView(for: book)
+                                    .listRowInsets(EdgeInsets())
+                                    .listRowSeparator(.hidden)
+                            }.frame(maxWidth: .infinity)
+                            
+
                         }
                     }
                     .navigationTitle(Text("Search for Books"))

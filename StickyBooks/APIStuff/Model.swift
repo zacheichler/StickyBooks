@@ -15,6 +15,7 @@ struct Response: Decodable {
             var publisher: String?
             var description: String?
             var imageLinks: ImageLinks?
+            var pageCount: Int?
             
             struct ImageLinks: Decodable {
                 var smallThumbnail: String?

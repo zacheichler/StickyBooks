@@ -59,8 +59,7 @@ struct LibraryRow: View {
                         }
                         
                     }else if(book.the_status == "Finished"){
-                        Circle().fill(Color("Orange")).frame(width:25, height: 25)
-                        
+                        Image("tick").resizable().frame(width: 25, height: 25)
                     }else if(book.the_status == "Paused"){
                         Text("\(Int((book.current_page/book.pages)*100))%").opacity(0.3).foregroundColor(.black)
                         

@@ -44,7 +44,9 @@ struct Library: View {
                                 
                                 ZStack {
                                     NavigationLink(destination:
+                                                    //useRedText ? .red : .blue
                                                     BookView(book: book,showingTabBar: $showingTabBar)
+                                                    
                                     ) {
                                         EmptyView()
                                     }

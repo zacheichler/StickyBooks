@@ -23,13 +23,13 @@ struct Dashboard: View {
             
             ZStack{
                 Color("BGBeige").edgesIgnoringSafeArea(.all)
-                
+         
                 VStack(alignment: .leading){
                     
                     Text("Actively Reading").padding(.leading, 7)
                 
                     ScrollView{
-                        LazyVGrid(columns: layout){
+                        VStack{
                             
                 
                             

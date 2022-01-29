@@ -16,6 +16,9 @@ struct SaveBook: View {
         bookThumbnail = image
     }
     
+    
+    var starting_status = ["Active", "Finished", "Not Started"]
+    
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
     
@@ -33,12 +36,15 @@ struct SaveBook: View {
     
     var body: some View {
         NavigationView{
-            VStack{
             
-                ThumbnailCover(bookThumbnail: bookThumbnail, width: 95)
-                
-                Form{
-                    Section{
+            ZStack{
+                Color("BGBeige").edgesIgnoringSafeArea(.all)
+                VStack{
+                    
+                    ThumbnailCover(bookThumbnail: bookThumbnail, width: 95)
+                    
+                    List{
+                        
                         HStack{
                             Text("Title")
                             Spacer()
@@ -54,42 +60,57 @@ struct SaveBook: View {
                                 Text($0)
                             }
                         }
-                        Picker("Reading Status", selection: $the_status){
-                            ForEach(status, id: \.self){
+                        
+                        Picker("What is your reading status", selection: $the_status) {
+                            ForEach(starting_status, id: \.self) {
                                 Text($0)
                             }
                         }
-                    }.onAppear(perform: {
+                        .pickerStyle(.segmented)
+                        
+                        
+
+                        
+                    }
+                    .navigationTitle("Add Book")
+                    .onAppear(perform: {
                         title = book.volumeInfo.title
                         author = book.volumeInfo.authors?.joined(separator:", ") ?? "No Author"
-        
+                        pages = book.volumeInfo.pageCount ?? 0
+                        
                     })
                     
-                    Section{
-                        Button("Save"){
-                            let newBook = Book(context: moc)
-                            newBook.id = UUID()
-                            newBook.title = title
-                            newBook.author = author
-                            newBook.current_page = Double(current_page)
-                            newBook.pages = Double(pages)
-                            newBook.thumbnail = bookThumbnail?.pngData()
-                            newBook.genre = genre
-                            newBook.the_status = the_status
-                            
-                            
-                            try? moc.save()
-                            dismiss()
-                        }
+                    Button(action: {
+                        let newBook = Book(context: moc)
+                        newBook.id = UUID()
+                        newBook.title = title
+                        newBook.author = author
+                        newBook.current_page = Double(current_page)
+                        newBook.pages = Double(pages)
+                        newBook.thumbnail = bookThumbnail?.pngData()
+                        newBook.genre = genre
+                        newBook.the_status = the_status
+                        
+                        
+                        try? moc.save()
+                        dismiss()
+                    }){
+                        Text("Record Reading Session")
+                            .frame(maxWidth: .infinity, maxHeight: 50)
+                            .background(Color("Orange"))
+                            .foregroundColor(.white)
+                            .cornerRadius(9)
+                            .padding()
                     }
-                }.navigationTitle("Add Book")
-        }
+                    
+                }
+            }
         }
     }
 }
 
 //struct AddBookView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        AddBookView()
+//        SaveBook()
 //    }
 //}
