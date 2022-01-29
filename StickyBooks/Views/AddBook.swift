@@ -29,12 +29,19 @@ struct AddBook: View {
                     
                     List {
                         ForEach(viewModel.books) { book in
-                            ZStack{
-                                //Color("BGBeige").edgesIgnoringSafeArea(.all)
-                                CellView(for: book)
-                                    .listRowInsets(EdgeInsets())
-                                    .listRowSeparator(.hidden)
-                            }.frame(maxWidth: .infinity)
+                            
+                            CellView(for: book)
+                                .listRowBackground(Color("BGBeige"))
+                                //.listRowInsets(EdgeInsets())
+                                //.listRowSeparator(.hidden)
+                            
+//                            ZStack{
+//                                Color("BGBeige").edgesIgnoringSafeArea(.all)
+//                                CellView(for: book)
+//                                    .listRowBackground(Color("BGBeige"))
+//                                    .listRowInsets(EdgeInsets())
+//                                    .listRowSeparator(.hidden)
+//                            }.frame(maxWidth: .infinity)
                             
 
                         }

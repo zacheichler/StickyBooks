@@ -44,22 +44,44 @@ struct ContentView: View {
             if(showingTabBar){
                 Rectangle().fill(Color.gray).frame(maxWidth: .infinity, maxHeight: 0.5)
                 HStack{
-                    Image("home").resizable().frame(width: 24, height: 24).onTapGesture {
+                    HStack{
+                        Spacer()
+                        Image("home").resizable().frame(width: 24, height: 24).opacity((current == "Dashboard" ? 1.0 : 0.6))
+                        Spacer()
+                    }.onTapGesture {
+                        let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                        impactMed.impactOccurred()
                         current = "Dashboard"
-                    }.opacity((current == "Dashboard" ? 1.0 : 0.6))
-                    Spacer()
-                    Image("library").resizable().frame(width: 24, height: 24).onTapGesture {
+                    }
+                    HStack{
+                        Spacer()
+                        Image("library").resizable().frame(width: 24, height: 24).opacity((current == "Library" ? 1.0 : 0.6))
+                        Spacer()
+                    }.onTapGesture {
+                        let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                        impactMed.impactOccurred()
                         current = "Library"
-                    }.opacity((current == "Library" ? 1.0 : 0.6))
-                    Spacer()
-                    Image("bookmark").resizable().frame(width: 24, height: 24).onTapGesture {
+                    }
+                    HStack{
+                        Spacer()
+                        Image("bookmark").resizable().frame(width: 24, height: 24).opacity((current == "Bookmarks" ? 1.0 : 0.6))
+                        Spacer()
+                    }.onTapGesture {
+                        let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                        impactMed.impactOccurred()
                         current = "Bookmarks"
-                    }.opacity((current == "Bookmarks" ? 1.0 : 0.6))
-                    Spacer()
-                    Image("user").resizable().frame(width: 24, height: 24).onTapGesture {
+                    }
+                    HStack{
+                        Spacer()
+                        Image("user").resizable().frame(width: 24, height: 24).opacity((current == "Profile" ? 1.0 : 0.6))
+                        Spacer()
+                    }.onTapGesture {
+                        let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                        impactMed.impactOccurred()
                         current = "Profile"
-                    }.opacity((current == "Profile" ? 1.0 : 0.6))
-                }.padding(EdgeInsets(top: 24, leading: 50, bottom: 20, trailing: 50))
+                    }
+                
+                }.padding(EdgeInsets(top: 24, leading: 5, bottom: 20, trailing: 5))
             }
         }.background(Color("BGBeige"))
         

@@ -54,8 +54,11 @@ struct Library: View {
                                     .buttonStyle(PlainButtonStyle())
 
 
-
-                                    LibraryRow(book: book)
+                                    VStack{
+                                        LibraryRow(book: book).padding(.top, 5)
+                                        Divider()
+                                    }
+                                    
 
                                 }
                                 .listRowInsets(EdgeInsets())

@@ -49,7 +49,7 @@ struct ActiveBook: View {
                     VStack{
                         ZStack(alignment: .leading){
                             Rectangle().fill(Color("DarkBeige")).frame(width: 220, height: 5)
-                            Rectangle().fill(Color("Orange")).frame(width: 50, height: 5)
+                            Rectangle().fill(Color("Orange")).frame(width: CGFloat(Int((book.current_page/book.pages)*220)), height: 5)
                         }
                         HStack{
                             Spacer()

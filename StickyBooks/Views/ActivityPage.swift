@@ -54,7 +54,11 @@ struct ActivityPage: View {
                 
                 
                 if(count == 0){
-                    Text("Hey")
+                    VStack{
+                        Spacer()
+                        Text("Add your first note, or record a reading session")
+                        Spacer()
+                    }
                 }else{
                     ScrollView{
                         VStack(spacing: 0){
@@ -78,36 +82,36 @@ struct ActivityPage: View {
                 
                 
                
-//                HStack(spacing:0){
-//                    TextField("Write a note", text: $text)
-//                        .padding()
-//                        .frame(height:55)
-//                        .background(Color("DarkBeige"))
-//                    ZStack{
-//                        Button("Save"){
-//
-//                            count = 1
-//
-//                            if(text != ""){
-//                                let newNote = Note(context: moc)
-//                                newNote.date = Date.now
-//                                newNote.page = Int16((book.current_page))
-//                                newNote.text = text
-//                                newNote.id = UUID()
-//                                newNote.bookTitle = book.title
-//                                newNote.isBookmarked = false
-//                                noteIsFocused = false
-//                                try? moc.save()
-//                                text = ""
-//                            }
-//
-//                        }.foregroundColor(Color("Orange"))
-//
-//                    }
-//                }.background(Color("DarkBeige"))
-//                    .onTapGesture {
-//                        noteSheet.toggle()
-//                    }
+                HStack(spacing:0){
+                    TextField("Write a note", text: $text)
+                        .padding()
+                        .frame(height:55)
+                        .background(Color("DarkBeige"))
+                    ZStack{
+                        Button("Save"){
+
+                            count = 1
+
+                            if(text != ""){
+                                let newNote = Note(context: moc)
+                                newNote.date = Date.now
+                                newNote.page = Int16((book.current_page))
+                                newNote.text = text
+                                newNote.id = UUID()
+                                newNote.bookTitle = book.title
+                                newNote.isBookmarked = false
+                                noteIsFocused = false
+                                try? moc.save()
+                                text = ""
+                            }
+
+                        }.foregroundColor(Color("Orange"))
+
+                    }
+                }.background(Color("DarkBeige"))
+                    .onTapGesture {
+                        noteSheet.toggle()
+                    }
                 ZStack{
                     
                     Color("BGBeige").edgesIgnoringSafeArea(.all)

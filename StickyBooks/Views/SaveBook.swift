@@ -95,7 +95,7 @@ struct SaveBook: View {
                         try? moc.save()
                         dismiss()
                     }){
-                        Text("Record Reading Session")
+                        Text("Add Book")
                             .frame(maxWidth: .infinity, maxHeight: 50)
                             .background(Color("Orange"))
                             .foregroundColor(.white)
