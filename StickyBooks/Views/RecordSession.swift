@@ -12,8 +12,12 @@ struct RecordSession: View {
     var book:Book
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
+    @State var step = "pageEntry"
+    @State private var text = ""
+    @State var count = 0
+    @FocusState private var noteIsFocused: Bool
     
-   
+    
     
     @State var pageNumber = ""
     
@@ -22,26 +26,90 @@ struct RecordSession: View {
             ZStack{
                 Color("BGBeige").edgesIgnoringSafeArea(.all)
                 VStack{
-                    Text("What page are you on?").font(.title).padding(.top, 100).padding(.bottom, 20)
-                    Text("Last Session: \(Int(book.current_page))" )
                     
-                    TextField("-", text: $pageNumber)
-                        .keyboardType(.decimalPad)
-                        .padding()
-                        .frame(width: 130, height: 65)
-                        .background(Color("DarkBeige"))
-                        .cornerRadius(50)
-                        .multilineTextAlignment(.center)
-                   
+                    
+                    if(step == "pageEntry"){
+                        
+                        Text("What page are you on?").font(.title).padding(.top, 100).padding(.bottom, 20)
+                        Text("Last Session: \(Int(book.current_page))" )
+                        
+                        TextField("-", text: $pageNumber)
+                            .keyboardType(.decimalPad)
+                            .padding()
+                            .frame(width: 130, height: 65)
+                            .background(Color("DarkBeige"))
+                            .cornerRadius(50)
+                            .multilineTextAlignment(.center)
+                        
+                    }else if(step == "summary"){
+                        
+                        VStack{
+                            
+                            Text("Write a summary of the last few pages").font(.title).padding(.top, 100).padding(.bottom, 20)
+                            
+                            TextField("Write a note", text: $text)
+                                .padding()
+                                .frame(height:55)
+                                .background(Color("DarkBeige"))
+                            //                            ZStack{
+                            //                                Button("Save"){
+                            //
+                            //                                    count = 1
+                            //
+                            //                                    if(text != ""){
+                            //                                        let newNote = Note(context: moc)
+                            //                                        newNote.date = Date.now
+                            //                                        newNote.page = Int16((book.current_page))
+                            //                                        newNote.text = text
+                            //                                        newNote.id = UUID()
+                            //                                        newNote.bookTitle = book.title
+                            //                                        newNote.isBookmarked = false
+                            //                                        noteIsFocused = false
+                            //                                        try? moc.save()
+                            //                                        text = ""
+                            //                                    }
+                            //
+                            //                                }.foregroundColor(Color("Orange"))
+                            //
+                            //                            }
+                            
+                            
+                        }
+                    }
+                    
+                    
                     
                     Spacer()
                     Button(action: {
                         
-                        if(pageNumber != ""){
-                            book.current_page = Double(pageNumber) ?? 0.0
-                            try? moc.save()
-                            dismiss()
+                        if(step == "pageEntry"){
+                            
+                            if(pageNumber != ""){
+                                step = "summary"
+                                book.current_page = Double(pageNumber) ?? 0.0
+                                try? moc.save()
+                            }
+                        }else if(step == "summary"){
+                            
+                            if(text != ""){
+                                let newNote = Note(context: moc)
+                                newNote.date = Date.now
+                                newNote.page = Int16((book.current_page))
+                                newNote.text = text
+                                newNote.id = UUID()
+                                newNote.bookTitle = book.title
+                                newNote.isBookmarked = false
+                                noteIsFocused = false
+                                try? moc.save()
+                                text = ""
+                                dismiss()
+                            }else{
+                                dismiss()
+                            }
+                            
                         }
+                        
+                        
                         
                     }){
                         Text("Save")
@@ -55,7 +123,7 @@ struct RecordSession: View {
                     
                 }
                 
-    
+                
             }
             .navigationTitle("Record Session")
             .navigationBarTitleDisplayMode(.inline)
@@ -68,13 +136,13 @@ struct RecordSession: View {
                             let impactMed = UIImpactFeedbackGenerator(style: .medium)
                             impactMed.impactOccurred()
                             dismiss()
-                    }
+                        }
                     
-                
+                    
                 }
                 
             }
-          
+            
         }
         
         
